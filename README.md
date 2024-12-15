@@ -1,1 +1,1 @@
-# library-app
+# Project: Library - JavaScript Course
