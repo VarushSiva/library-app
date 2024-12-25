@@ -8,9 +8,84 @@ body {
   background-color: black;
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   color: green;
   font-weight: 800;
+}
+
+.title {
+  display: flex;
+  font-size: 2rem;
+  height: 60px;
+  max-width: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: purple;
+}
+
+.book-details {
+  text-align: start;
+  color: white;
+  height: 40px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+  gap: 50px;
+  padding: 50px;
+}
+
+.book {
+  height: 450px;
+  width: 250px;
+  border: solid 5px purple;
+}
+
+.book-cover {
+  height: 300px;
+}
+
+.book-content,
+.book-status {
+  height: 100px;
+  width: 100%;
+}
+
+.book-status {
+  height: 50px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+#read {
+  background-color: green;
+}
+
+#unread {
+  background-color: red;
+}
+
+body,
+h1,
+.container,
+.book-details {
+  border: solid 2px blue;
+  border-style: inset;
+}
+
+.book-cover,
+.book-content,
+button {
+  /* border: solid 5px orange; */
+  border-style: inset;
 }
