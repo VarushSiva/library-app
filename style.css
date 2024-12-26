@@ -12,13 +12,18 @@ h1,
 h2 {
   text-align: center;
   font-size: 3rem;
-  color: green;
+  color: rgb(0, 255, 17);
   font-weight: 800;
+}
+
+h1 {
+  border-bottom: solid 5px purple;
+  padding: 40px;
 }
 
 .title {
   display: flex;
-  font-size: 2rem;
+  font-size: 1.5rem;
   height: 60px;
   max-width: 250px;
   justify-content: center;
@@ -47,7 +52,7 @@ h2 {
 
 .book {
   height: 450px;
-  width: 250px;
+  width: 200px;
   border: solid 5px purple;
 }
 
@@ -65,6 +70,8 @@ h2 {
   height: 50px;
   color: white;
   font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
 }
 
 #read {
@@ -75,7 +82,12 @@ h2 {
   background-color: red;
 }
 
-body,
+#read:hover,
+#unread:hover {
+  filter: brightness(85%);
+}
+
+/* body,
 h1,
 .container,
 .book-details {
@@ -86,6 +98,6 @@ h1,
 .book-cover,
 .book-content,
 button {
-  /* border: solid 5px orange; */
+  border: solid 5px orange;
   border-style: inset;
-}
+} */
