@@ -9,16 +9,6 @@ function Book(cover, title, author, pages, isRead) {
   this.isRead = isRead;
 }
 
-let onePieceCover =
-  "https://m.media-amazon.com/images/I/71y+XnBXm4L._AC_UF1000,1000_QL80_.jpg";
-let onePieceVol1 = new Book(
-  onePieceCover,
-  "One Piece Vol 1",
-  "Eiichiro Oda",
-  100,
-  true
-);
-
 let sevenDeadlySinsCover =
   "https://upload.wikimedia.org/wikipedia/en/c/c1/Nanatsu_no_Taizai_Volume_1.png";
 let sevenDeadlySinsVol1 = new Book(
@@ -26,14 +16,13 @@ let sevenDeadlySinsVol1 = new Book(
   "Seven Deadly Sins Vol 1",
   "Nakaba Suzuki",
   77,
-  false
+  true
 );
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-addBookToLibrary(onePieceVol1);
 addBookToLibrary(sevenDeadlySinsVol1);
 
 // Function to create elements with class name
@@ -46,8 +35,8 @@ function createElementClassAppend(element, className, parent) {
   return attribute;
 }
 
-function displayBooks(bookList) {
-  for (let i = 0; i < bookList.length; i++) {
+function displayBooks(bookList, startCount = 0) {
+  for (let i = startCount; i < bookList.length; i++) {
     let currentBook = bookList[i];
     let cards = createElementClassAppend("div", "book", container);
 
@@ -85,7 +74,90 @@ function displayBooks(bookList) {
       bookStatus.id = "unread";
       bookStatus.textContent = "Not Read";
     }
+
+    bookStatus.addEventListener("click", () => {
+      if (bookStatus.id == "read") {
+        bookStatus.id = "unread";
+        bookStatus.textContent = "Not Read";
+      } else {
+        bookStatus.id = "read";
+        bookStatus.textContent = "Read";
+      }
+    });
   }
 }
 
 displayBooks(myLibrary);
+
+// One Piece Collection 7 Books
+let onePieceVol1 = new Book(
+  "./assets/onepiecevol1.jpg",
+  "One Piece Vol 1",
+  "Eiichiro Oda",
+  100,
+  false
+);
+
+let onePieceVol2 = new Book(
+  "./assets/onepiecevol2.jpg",
+  "One Piece Vol 2",
+  "Eiichiro Oda",
+  100,
+  true
+);
+
+let onePieceVol3 = new Book(
+  "./assets/onepiecevol3.jpg",
+  "One Piece Vol 3",
+  "Eiichiro Oda",
+  100,
+  false
+);
+
+let onePieceVol4 = new Book(
+  "./assets/onepiecevol4.jpg",
+  "One Piece Vol 4",
+  "Eiichiro Oda",
+  100,
+  true
+);
+
+let onePieceVol5 = new Book(
+  "./assets/onepiecevol5.jpg",
+  "One Piece Vol 5",
+  "Eiichiro Oda",
+  100,
+  false
+);
+
+let onePieceVol6 = new Book(
+  "./assets/onepiecevol6.jpg",
+  "One Piece Vol 6",
+  "Eiichiro Oda",
+  100,
+  true
+);
+
+let onePieceVol7 = new Book(
+  "./assets/onepiecevol7.jpg",
+  "One Piece Vol 7",
+  "Eiichiro Oda",
+  100,
+  false
+);
+
+let addOnePieceCollection = document.getElementById("addOnePiece");
+
+addOnePieceCollection.addEventListener("click", () => {
+  let count = myLibrary.length;
+  addBookToLibrary(onePieceVol1);
+  addBookToLibrary(onePieceVol2);
+  addBookToLibrary(onePieceVol3);
+  addBookToLibrary(onePieceVol4);
+  addBookToLibrary(onePieceVol5);
+  addBookToLibrary(onePieceVol6);
+  addBookToLibrary(onePieceVol7);
+  displayBooks(myLibrary, count);
+  document.getElementById("addOnePiece").disabled = true;
+  addOnePieceCollection.style.cssText = `filter: none;`;
+});

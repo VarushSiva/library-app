@@ -46,6 +46,29 @@ body {
   grid-template-columns: 2fr 1fr;
 }
 
+.top-right {
+  display: flex;
+  flex-direction: column;
+  border: solid 5px black;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.button {
+  width: 200px;
+  height: 75px;
+  background-color: white;
+  border-radius: 25px;
+  font-weight: 700;
+}
+
+button {
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
 .description {
   color: white;
   font-size: 1rem;
@@ -91,12 +114,14 @@ a:active {
   flex-direction: column;
   overflow: hidden;
   background-color: purple;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   margin-bottom: 15px;
   text-align: center;
 }
 
 .book-details {
-  text-align: center;
+  text-align: start;
   height: 50px;
   font-size: 0.8em;
   padding-top: 5px;
@@ -135,11 +160,8 @@ a:active {
 }
 
 .book-status {
-  height: 25px;
+  height: 30px;
   color: white;
-  font-size: 1.2rem;
-  border: none;
-  cursor: pointer;
   border-radius: 15px;
 }
 
@@ -151,8 +173,7 @@ a:active {
   background-color: red;
 }
 
-#read:hover,
-#unread:hover {
+button:hover {
   filter: brightness(85%);
 }
 
