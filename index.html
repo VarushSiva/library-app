@@ -33,12 +33,55 @@
           </div>
         </div>
         <div class="top-right">
-          <dialog id="bookDialog">
-            <form action="showModal()"></form>
+          <dialog id="Dialog">
+            <form method="dialog">
+              <div class="closeDialog">
+                <button id="close">X</button>
+              </div>
+              <h1 class="form-title">Add a Book</h1>
+              <div class="book-dialog">
+                <label for="bookName">Book Title:</label>
+                <input type="text" name="bookName" id="bookName" required />
+              </div>
+              <div class="book-dialog">
+                <label for="bookAuthor">Author:</label>
+                <input type="text" name="bookAuthor" id="bookAuthor" required />
+              </div>
+              <div class="book-dialog">
+                <label for="bookPages">Pages:</label>
+                <input type="number" name="bookPages" id="bookPages" required />
+              </div>
+              <div class="book-dialog">
+                <label for="bookCover">Cover URL:</label>
+                <input type="text" name="bookCover" id="bookCover" />
+              </div>
+              <div class="book-dialog">
+                <label for="bookStatus">Status:</label>
+                <div class="book-status-dialog">
+                  <input
+                    type="radio"
+                    name="bookStatus"
+                    id="Read"
+                    value="Read"
+                    checked
+                  /><label for="Read">Read</label>
+                  <input
+                    type="radio"
+                    name="bookStatus"
+                    id="NotRead"
+                    value="NotRead"
+                  />
+                  <label for="NotRead">Not Read</label>
+                </div>
+              </div>
+              <div class="buttons-dialog">
+                <button id="submit" value="submit">Add Book</button>
+              </div>
+            </form>
           </dialog>
           <button type="button" class="button" id="addBook">Add Book</button>
           <button type="button" class="button" id="addOnePiece">
-            Add Onpiece Collection
+            Add One Piece Collection
           </button>
         </div>
       </div>

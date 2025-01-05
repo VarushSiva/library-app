@@ -161,3 +161,57 @@ addOnePieceCollection.addEventListener("click", () => {
   document.getElementById("addOnePiece").disabled = true;
   addOnePieceCollection.style.cssText = `filter: none;`;
 });
+
+// Add Book Button
+const addBook = document.querySelector("#addBook");
+const bookDialog = document.querySelector("dialog");
+addBook.addEventListener("click", () => {
+  bookDialog.showModal();
+});
+
+const form = document.querySelector("form");
+
+const dBookName = document.getElementById("bookName");
+const dBookAuthor = document.getElementById("bookAuthor");
+const dBookPages = document.getElementById("bookPages");
+const dBookCover = document.getElementById("bookCover");
+const dBookStatus = document.getElementById("Read");
+
+const submitButton = document.querySelector("#submit");
+submitButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  // Variables for Dialog
+  if (form.checkValidity()) {
+    let status;
+    if (dBookStatus.checked == true) {
+      status = true;
+    } else {
+      status = false;
+    }
+
+    let book = new Book(
+      dBookCover.value,
+      dBookName.value,
+      dBookAuthor.value,
+      dBookPages.value,
+      status
+    );
+
+    let count = myLibrary.length;
+    addBookToLibrary(book);
+    displayBooks(myLibrary, count);
+
+    form.reset();
+    bookDialog.close();
+  } else {
+    form.reportValidity();
+  }
+});
+
+const closeDialog = document.querySelector("#close");
+closeDialog.addEventListener("click", (e) => {
+  e.preventDefault();
+  form.reset();
+  bookDialog.close();
+});

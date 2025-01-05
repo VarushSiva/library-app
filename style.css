@@ -49,10 +49,10 @@ body {
 .top-right {
   display: flex;
   flex-direction: column;
-  border: solid 5px black;
   justify-content: center;
   align-items: center;
   gap: 15px;
+  padding: 10px;
 }
 
 .button {
@@ -175,6 +175,51 @@ a:active {
 
 button:hover {
   filter: brightness(85%);
+}
+
+/* Form Dialog */
+dialog {
+  border-radius: 20px;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 20px;
+  font-weight: 700;
+}
+
+.book-dialog {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.buttons-dialog {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.buttons-dialog > button {
+  padding: 10px;
+  width: 150px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: solid 1px black;
+  background-image: linear-gradient(110deg, blue, cyan);
+  color: white;
+  font-weight: 700;
+}
+
+.book-status-dialog {
+  padding-right: 20px;
+}
+
+.closeDialog {
+  display: flex;
+  justify-content: end;
 }
 
 /* body,
