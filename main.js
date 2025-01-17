@@ -39,11 +39,15 @@ function displayBooks(bookList, startCount = 0) {
   for (let i = startCount; i < bookList.length; i++) {
     let currentBook = bookList[i];
     let cards = createElementClassAppend("div", "book", container);
-
+    cards.id = i;
     // Displaying Contents of Book
     // 1. Book Cover
     let bookCover = createElementClassAppend("div", "book-cover", cards);
-    bookCover.style.cssText = `background-image: url(${currentBook.cover}); background-size: cover; background-position: center;`;
+    if (currentBook.cover.length == 0) {
+      bookCover.style.cssText = `background-color: white;`;
+    } else {
+      bookCover.style.cssText = `background-image: url(${currentBook.cover}); background-size: cover; background-position: center;`;
+    }
 
     // 2. Book Content
     let bookContent = createElementClassAppend("div", "book-content", cards);
@@ -65,8 +69,18 @@ function displayBooks(bookList, startCount = 0) {
     let bookPages = createElementClassAppend("p", "", bookDetails);
     bookPages.textContent = `Pages: ${currentBook.pages}`;
 
-    // 3. Read/Not Read Button
-    let bookStatus = createElementClassAppend("button", "book-status", cards);
+    // 3 Create Div to put Read and Delete Buttons inside
+    let functionalButtons = createElementClassAppend(
+      "div",
+      "functional-buttons",
+      cards
+    );
+    // 3.1 Read/Not Read Button
+    let bookStatus = createElementClassAppend(
+      "button",
+      "book-status",
+      functionalButtons
+    );
     if (currentBook.isRead) {
       bookStatus.id = "read";
       bookStatus.textContent = "Read";
@@ -84,7 +98,32 @@ function displayBooks(bookList, startCount = 0) {
         bookStatus.textContent = "Read";
       }
     });
+
+    // 3.2 Create Delete Button
+    let deleteButton = createElementClassAppend(
+      "button",
+      "delete",
+      functionalButtons
+    );
+
+    let deleteImg = createElementClassAppend(
+      "img",
+      "delete-icon",
+      deleteButton
+    );
+    deleteImg.src = "./assets/trash-can-outline.svg";
+
+    // If delete button is clicked, use the id in card to exec function deleteBook
+    deleteButton.addEventListener("click", () => {
+      deleteBook(cards.id);
+    });
   }
+}
+
+// Delete book using the index
+function deleteBook(index) {
+  let div = document.getElementById(index);
+  div.remove();
 }
 
 displayBooks(myLibrary);
